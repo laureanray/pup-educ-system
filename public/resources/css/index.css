@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i");
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* background: #e7e7e7; */
+}
+
+body .login {
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background: url("/resources/images/login_bg.jpg");
+  background-size: cover;
+}
+
+body .login .login-card {
+  align-self: center;
+  border: 1px solid #e7e7e7;
+  padding: 25px;
+  background: #fafafa;
+  width: 350px;
+  box-shadow: 0px 5px 30px #000;
+}
+
+body .login .login-card #error-text {
+  color: rgb(156, 37, 37);
+  padding: 5px 0;
+}
+
+body .login .login-card h1 {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+body .login .login-card form {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 0;
+}
+
+body .login .login-card form input {
+  padding: 8px;
+  margin: 4px 0;
+  font-size: 16px;
+
+  font-family: "IBM Plex Sans", sans-serif;
+  outline: 0;
+  border: 1px solid #e7e7e7;
+}
+
+body .login .login-card form input:focus {
+  border-color: rgb(8, 77, 117);
+}
+
+.button {
+  font-family: "IBM Plex Sans", sans-serif;
+  padding: 8px;
+  font-size: 16px;
+  margin-top: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: 0;
+  width: 100%;
+}
+
+.button-primary {
+  color: #e7e7e7;
+  background-color: #0e4da0;
+  border: 1px solid #0e4da0;
+}
+
+.button-danger {
+  color: #e7e7e7;
+  background-color: #cf2038;
+  border: 1px solid #cf2038;
+}
+
+body .login .login-card form button:hover {
+  background: white;
+  color: #0e4da0;
+  transition: all 0.3s ease;
+}
+
+.navbar {
+  background: #0e4da0;
+  /* height: 50px; */
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar .branding h1 {
+  color: #e7e7e7;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.fas {
+  color: white;
+  cursor: pointer;
+}
+
+.navbar .nav-controls {
+  display: flex;
+}
+
+.navbar .nav-controls p,
+a {
+  text-decoration: none;
+  color: #e7e7e7;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding: 0 12px;
+  color: white;
+}
+
+.control-box {
+  border: 1px solid #888;
+  padding: 15px;
+  margin: 5px;
+}
+
+.control-box:first-of-type {
+  flex-grow: 1;
+}
+
+.control-box .control-group {
+  margin-top: 12px;
+}
+
+.control-box .control-title {
+  font-size: 22px;
+  font-weight: 300;
+  color: #2e2e2e;
+}
+
+.control-box .control-description {
+  font-size: 13px;
+  padding: 5px 0;
+  color: #2e2e2e;
+}
+
+section#controls {
+  display: flex;
+}

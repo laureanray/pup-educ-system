@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Enroll</title>
 </head>
 <body>
-    <h1> Hello World. </h1>
-    <a href="/student/login.php"> Login (Student) </a>
-    <a href="/faculty/login.php"> Login (Faculty) </a>
+    <div class="enrollment">
+        
+    </div>
 </body>
 </html>

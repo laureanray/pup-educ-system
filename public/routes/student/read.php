@@ -29,22 +29,11 @@ if (!empty($data->api_key)) {
         if($database->connect()){
             $databaseConnection = $database->getConnection();
 
-
-
-            /*
-        Creating an instance of the Student class.
-    */
             $student = new Student($databaseConnection);
 
-            /*
-        Function call read() to execute the SQL Queries, returns PDOstatement object (if successfull)
-    */
             $statement = $student->read();
             $numberOfRows = $statement->rowCount();
-
-            /*
-        This checks if the query has returned result/s
-    */
+            
             if ($numberOfRows > 0) {
                 $studentsArray = array();
                 $studentsArray["data"] = array();

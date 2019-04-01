@@ -120,7 +120,6 @@ class Student
         
     }
 
-    // used when filling up the update product form
     function readOne($criteria){
 
         // query to read single record
@@ -145,7 +144,5 @@ class Student
         }else {
             return false;
         }
-
-
     }
 }
