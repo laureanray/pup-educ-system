@@ -42,15 +42,73 @@ CREATE TABLE IF NOT EXISTS enrollees (
         last_name VARCHAR(255) NOT NULL,
         first_name VARCHAR(255) NOT NULL,
         middle_name VARCHAR(255) NOT NULL,
-        birthday VARCHAR(255) NOT NULL,
-        guardian_name VARCHAR(255) NOT NULL,
-        guardian_contact VARCHAR(255) NOT NULL
+        nickname VARCHAR(255) NOT NULL,
+        address VARCHAR(255) NOT NULL,
+        date_of_birth VARCHAR(255) NOT NULL,
+        sex VARCHAR(255) NOT NULL,
+        mothers_name VARCHAR(255) NOT NULL,
+        mothers_contact VARCHAR(255) NOT NULL,
+        fathers_name VARCHAR(255) NOT NULL,
+        fathers_contact VARCHAR(255) NOT NULL
 );
 
 INSERT INTO enrollees 
-(`last_name`, `first_name`, `middle_name`, `birthday`, `guardian_name`, `guardian_contact`)
+(`last_name`, `first_name`, `middle_name`, `nickname`, `address`, `date_of_birth`,
+ `sex`, `mothers_name`, `mothers_contact`, `fathers_name`, `fathers_contact`)
 VALUES 
-('Bahala', 'LR', 'Salvan', '09-19-1999', 'Charlene Esteban', '09273873155');
+('Bahala', 'Laurean Ray', 'Salvan', 'LR', 'Bacosod, Sta. Mesa', '09-19-1999', 'Male', 'Charlene Esteban', '09273873155', 'Charlene Estebano', '09273873155');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 CREATE TABLE IF NOT EXISTS students (
         id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,

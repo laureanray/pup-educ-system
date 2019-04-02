@@ -1,0 +1,30 @@
+body {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.container {
+  width: 70%;
+}
+
+form#enrollment_form {
+  margin-top: 3%;
+}
+
+.headings-1 {
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 2px;
+  font-size: 24px;
+  border-bottom: 2px solid #888;
+  padding-bottom: 5px;
+  margin-bottom: 25px;
+}
+
+.form-control::-webkit-input-placeholder {
+  font-weight: 400;
+}
+
+.form-control {
+  color: #202020;
+  font-weight: 500;
+}
