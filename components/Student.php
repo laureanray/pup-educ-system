@@ -17,60 +17,138 @@ class Student
         $this->connection = $database;
     }
 
-    public function setId($id)
+    /**
+     * @return mixed
+     */
+    public function getConnection()
+    {
+        return $this->connection;
+    }
+
+    /**
+     * @param mixed $connection
+     */
+    public function setConnection($connection): void
+    {
+        $this->connection = $connection;
+        }
+
+    /**
+     * @return string
+     */
+    public function getTableName(): string
+    {
+        return $this->tableName;
+    }
+
+    /**
+     * @param string $tableName
+     */
+    public function setTableName(string $tableName): void
+    {
+        $this->tableName = $tableName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
     {
         $this->id = $id;
     }
 
-    public function getName(){
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
         return $this->name;
     }
 
-    public function getId(){
-        return $this->id;
-    }
-
-    public function getEmail(){
-        return $this->email;
-    }
-
-    public function getStudentNumber(){
-        return $this->studentNumber;
-    }
-
-    public function getPassword(){
-        return $this->password;
-    }
-
-    public function getRegistered(){
-        return $this->registered;
-    }
-
-
-    public function setName($name)
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
     {
         $this->name = $name;
     }
 
-    public function setEmail($email)
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email): void
     {
         $this->email = $email;
     }
 
-    public function setPassword($password)
+    /**
+     * @return mixed
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password): void
     {
         $this->password = $password;
     }
 
-    public function setStudentNumber($studentNumber)
+    /**
+     * @return mixed
+     */
+    public function getStudentNumber()
+    {
+        return $this->studentNumber;
+    }
+
+    /**
+     * @param mixed $studentNumber
+     */
+    public function setStudentNumber($studentNumber): void
     {
         $this->studentNumber = $studentNumber;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getRegistered()
+    {
+        return $this->registered;
+    }
+
+    /**
+     * @param mixed $registered
+     */
+    public function setRegistered($registered): void
+    {
+        $this->registered = $registered;
+    }
+
+    
     public function read()
     {
         $query = "SELECT * FROM " . $this->tableName;
-
         $statement = $this->connection->prepare($query);
 
         if($statement === false){
