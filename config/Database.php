@@ -3,7 +3,8 @@
 /**
  * Class Database
  */
-class Database {
+class Database
+{
     private $host;
     private $databaseName;
     private $username;
@@ -38,18 +39,15 @@ class Database {
     /**
      * @return bool
      */
-    public function connect(){
+    public function connect()
+    {
         try {
-            $this->connection = new PDO("mysql:host=".$this->host.";dbname=".$this->databaseName, $this->username, $this->password);
+            $this->connection = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->databaseName, $this->username, $this->password);
             return true;
-        }catch(PDOException $exception){
-            print   ("Connection Error: " . $exception->getMessage());
+        } catch (PDOException $exception) {
+            print("Connection Error: " . $exception->getMessage());
             return false;
         }
     }
-
-
-
-
-
 }
+

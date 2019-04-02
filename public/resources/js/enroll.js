@@ -45,12 +45,12 @@ $(document).ready(function() {
         mothers_contact: mothers_contact,
         fathers_name: fathers_name,
         fathers_contact: fathers_contact
-      }),
+      }),x
       success: function(data) {
-        console.log(data.responseText);
+        alert(data.message);
       },
       error: function(error) {
-        console.log(error.responseText);
+        console.log(error);
       }
     });
   });
