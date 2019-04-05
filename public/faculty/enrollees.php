@@ -24,7 +24,7 @@
                     <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div>
                     <h4 class="text-center " style="color: #f27474" ;> Unexpected Error. </h4>
                 </div>
-                <div class="modal-text">
+                <div id="modal-text">
                     This will approve the application for
                     <span id="enrollee_name" class='text-primary'></span>
                     Once approved, the data will automatically be converted into student. <br><br>
@@ -144,6 +144,7 @@
 
     $(document).ready(function() {
         var table = $("#example").DataTable({
+            "iDisplayLength": 25,
             ajax: {
                 url: "/routes/student/get_enrollees.php",
                 dataSrc: function(json) {
@@ -237,7 +238,8 @@
                     data: "status"
                 }
             ],
-            initComplete: function(settings, json) {
+            drawCallback: function(settings) {
+                console.log('draw callkbac');
                 $(".approve").click(function() {
                     let id = $(this).data("id");
                     $("#enrollee_name").html($(this).data("fullname"));
@@ -252,13 +254,21 @@
                         console.log("approve " + id);
                         enroll_student(
                             id,
-                            username,   
+                            username,
                             $(this).data("password")
                         );
+                    });
+
+                    $("#dismiss_button").click(function() {
+                        $(".result_success").hide();
+                        $("#approve_button").show();
+                        $("#dismiss_button").html("Cancel");
+
                     });
                 });
             }
         });
+
 
 
 
@@ -273,11 +283,18 @@
                     password: password
                 }),
                 success: function(data) {
-                    $("#dismiss_button").html("Close");
-                    $("#modal-text").hide();
-                    $(".result_success").show();
-                    $("#approve_button").hide();
-                    table.ajax.reload();
+                    console.log(data);  
+                    if (data.message === 'Success') {
+                        $("#dismiss_button").html("Close");
+                        $(".result_success").show();
+                        $("#approve_button").hide();
+                        table.ajax.reload(null, false);
+                    } else {
+                        $("#dismiss_button").html("Close");
+                        $(".result_fail").show();
+                        $("#approve_button").hide();
+                    }
+
                 },
                 error: function(error) {
                     alert(error);

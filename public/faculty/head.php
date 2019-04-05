@@ -28,3 +28,6 @@
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="/resources/css/styles.css">
+<script src="/trumbowyg/dist/trumbowyg.js"></script>
+
+<link rel="stylesheet" href="/trumbowyg/dist/ui/trumbowyg.css">

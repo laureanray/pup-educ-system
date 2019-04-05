@@ -18,8 +18,6 @@ function enrollStudent($data)
     $username = $data['username'];
     $password = $data['password'];
 
-
-    var_dump($data);
     $connection = connectToSQL();
     $query_string = "SELECT * FROM enrollees where id='$id' LIMIT 1";
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -27,6 +25,7 @@ function enrollStudent($data)
     try {
         $data = $connection->query($query_string)->fetch();
         if ($data) {
+            date_default_timezone_set('Asia/Singapore');
             $date = date('m/d/Y h:i:s a', time());
             $update_query = "UPDATE enrollees SET is_enrolled='$date' WHERE id='$id'";
 
@@ -36,11 +35,9 @@ function enrollStudent($data)
                     // var_dump($update_result);
                     // var_dump($data);
                     if (create_student($data, $username, $password)) {
-                        print("SUCCESS!");
-                        return true;
+                        return "OK";
                     } else {
-                        print("NGEK");
-                        return false;
+                        return "ERROR";
                     }
                 } else {
                     return false;
@@ -64,8 +61,7 @@ function enrollStudent($data)
 
 function create_student($data, $username, $password)
 {
-    print("DATA");
-    print($data['first_name']);
+
     // var_dump($data['first_name']);
     $first_name = $data['first_name'];
     $last_name = $data['last_name'];
@@ -97,7 +93,8 @@ function create_student($data, $username, $password)
     ";
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     try {
-        if ($connection->query($query_string)) {
+        $result = $connection->query($query_string);
+        if ($result) {
             return true;
         } else {
             return false;
@@ -249,6 +246,80 @@ function getFacultyData($email)
             return $result;
         } else {
             return "NOT_FOUND";
+        }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+
+function deleteAnnouncement($id)
+{
+    $connection = connectToSQL();
+    $query_string = "DELETE FROM announcements WHERE id='$id'";
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    try {
+        $statement = $connection->query($query_string);
+        if ($statement) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+
+function createAnnouncement($data)
+{
+
+    $title = $data['title'];
+    $content = $data['content'];
+    $author_id = $data['author_id'];
+    date_default_timezone_set('Asia/Singapore');
+    $updated = date('m/d/Y h:i:s a', time());
+
+    $connection = connectToSQL();
+
+    $query_string = "
+    INSERT INTO announcements 
+    (title, content, author_id, updated)
+    VALUES 
+    ('$title', '$content', '$author_id', '$updated') ";
+
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    try {
+        $statement = $connection->query($query_string);
+        if ($statement) {
+
+            return true;
+        } else {
+            return false;
+        }
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+        return false;
+    }
+}
+
+function getAllAnnouncements()
+{
+    $connection = connectToSQL();
+    $query_string = "
+    SELECT announcements.id, announcements.title, announcements.content,
+           announcements.updated, faculties.first_name, faculties.last_name 
+     FROM announcements LEFT JOIN faculties ON faculties.id=announcements.author_id";
+
+    $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    try {
+        $data = $connection->query($query_string)->fetchAll(PDO::FETCH_ASSOC);
+        if ($data) {
+            return json_encode(array("data" => $data));
+        } else {
+            return false;
         }
     } catch (PDOException $e) {
         echo $e->getMessage();

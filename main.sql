@@ -115,3 +115,18 @@ INSERT INTO grades
 (`subject_id`, `grade`, `student_id`)
 VALUES
 ('1', '98.74', '1');
+
+
+CREATE TABLE IF NOT EXISTS announcements (
+    id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    content VARCHAR(255) NOT NULL,
+    author_id VARCHAR(255) NOT NULL,
+    updated VARCHAR(255) NOT NULL,
+);
+
+
+INSERT INTO announcements
+(`title`, `content`, `author_id`, `updated`)
+VALUES
+('Hello World', '<p> This is an announcement </p> ', '1', 'Today');

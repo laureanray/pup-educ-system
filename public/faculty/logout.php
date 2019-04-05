@@ -7,4 +7,4 @@ if (isset($_SESSION['faculty'])) {
     // var_dump($_SESSION['user']);
 }
 
-header("Location: /faculty/login.php");
+header("Location: /login.php");

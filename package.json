@@ -1,0 +1,22 @@
+{
+  "name": "community-outreach-learning-center-web-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laureanray/pup-educ-system.git"
+  },
+  "author": "Laurean Ray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laureanray/pup-educ-system/issues"
+  },
+  "homepage": "https://github.com/laureanray/pup-educ-system#readme",
+  "dependencies": {
+    "trumbowyg": "^2.15.1"
+  }
+}

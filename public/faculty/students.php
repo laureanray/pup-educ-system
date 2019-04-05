@@ -143,6 +143,7 @@
     }
 
     var table = $("#student_table").DataTable({
+        "iDisplayLength": 100,
         ajax: {
             url: "/routes/student/get_students.php",
             dataSrc: function(json) {
@@ -237,7 +238,7 @@
                 data: "status"
             }
         ],
-        initComplete: function(settigns, json) {
+        drawCallback: function(settings) {
             $(".approve").click(function() {
                 console.log("approve");
                 let id = $(this).data("id");

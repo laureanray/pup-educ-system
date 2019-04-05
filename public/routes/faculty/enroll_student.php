@@ -3,6 +3,9 @@ session_start();
 include(dirname(__FILE__) . "/../../../core/functions.php");
 $config = include(dirname(__FILE__) . "/../../../config/Config.php");
 
+header('Content-Type: application/json');
+
+
 if ($_SERVER['REQUEST_METHOD']  !== 'POST') {
     echo json_encode(array("message" => "Unauthorized."));
 } else {
@@ -13,10 +16,8 @@ if ($_SERVER['REQUEST_METHOD']  !== 'POST') {
         if ($response === "OK") {
             $_SESSION['faculty'] = $data;
             echo json_encode(array("message" => "Success"));
-        } else if ($response === "WRONG_PW") {
-            echo json_encode(array("message" => "Incorrect Password"));
-        } else if ($response === "NOT_FOUND") {
-            echo json_encode(array("message" => "Faculty Doesn't Exists"));
+        } else {
+            echo json_encode(array("message" => "Fail"));
         }
     } else {
         echo json_encode(array("message" => "Unauthorized"));
