@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS faculties (
 INSERT INTO faculties (`last_name`, `first_name`, `middle_name`, 
                         `email`, `username`, `password`)
 VALUES 
-('Dela Cruz', 'Juan', 'Reyes', 'jdcruz@example.com', 'jdcruz', 'juantamad');
+('Bahala', 'Laurean Ray', 'Salvan', 'laureanraybahala@gmail.com', 'laureanray', '5f4dcc3b5aa765d61d8327deb882cf99');
 
 CREATE TABLE IF NOT EXISTS enrollees (
         id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -45,87 +45,40 @@ CREATE TABLE IF NOT EXISTS enrollees (
         nickname VARCHAR(255) NOT NULL,
         address VARCHAR(255) NOT NULL,
         date_of_birth VARCHAR(255) NOT NULL,
-        sex VARCHAR(255) NOT NULL,
+        age VARCHAR(255) NOT NULL,
+        gender VARCHAR(255) NOT NULL,
         mothers_name VARCHAR(255) NOT NULL,
         mothers_contact VARCHAR(255) NOT NULL,
+        mothers_occupation VARCHAR(255) NOT NULL,
         fathers_name VARCHAR(255) NOT NULL,
-        fathers_contact VARCHAR(255) NOT NULL
+        fathers_contact VARCHAR(255) NOT NULL,
+        fathers_occupation VARCHAR(255) NOT NULL,
+        number_of_siblings VARCHAR(255) NOT NULL,
+        is_enrolled VARCHAR(255) NOT NULL DEFAULT "FALSE"
 );
-
-INSERT INTO enrollees 
-(`last_name`, `first_name`, `middle_name`, `nickname`, `address`, `date_of_birth`,
- `sex`, `mothers_name`, `mothers_contact`, `fathers_name`, `fathers_contact`)
-VALUES 
-('Bahala', 'Laurean Ray', 'Salvan', 'LR', 'Bacosod, Sta. Mesa', '09-19-1999', 'Male', 'Charlene Esteban', '09273873155', 'Charlene Estebano', '09273873155');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 CREATE TABLE IF NOT EXISTS students (
         id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
         last_name VARCHAR(255) NOT NULL,
         first_name VARCHAR(255) NOT NULL,
         middle_name VARCHAR(255) NOT NULL,
-        birthday VARCHAR(255) NOT NULL,
-        guardian_name VARCHAR(255) NOT NULL,
-        guardian_contact VARCHAR(255) NOT NULL,
+        nickname VARCHAR(255) NOT NULL,
+        address VARCHAR(255) NOT NULL,
+        date_of_birth VARCHAR(255) NOT NULL,
+        age VARCHAR(255) NOT NULL,
+        gender VARCHAR(255) NOT NULL,
+        mothers_name VARCHAR(255) NOT NULL,
+        mothers_contact VARCHAR(255) NOT NULL,
+        mothers_occupation VARCHAR(255) NOT NULL,
+        fathers_name VARCHAR(255) NOT NULL,
+        fathers_contact VARCHAR(255) NOT NULL,
+        fathers_occupation VARCHAR(255) NOT NULL,
+        number_of_siblings VARCHAR(255) NOT NULL,
         username VARCHAR(255) NOT NULL,
-        password VARCHAR (255) NOT NULL
+        password VARCHAR (255) NOT NULL,
+        date_enrolled VARCHAR(32) NOT NULL,
+        UNIQUE(username)
 );
-
-INSERT INTO students
-(`last_name`, `first_name`, `middle_name`, `birthday`, `guardian_name`, `guardian_contact`, `username`, `password`)
-VALUES 
-('Bahala', 'LR', 'Salvan', '09-19-1999', 'Charlene Esteban', '09273873155', 'laureanray', 'lrbahala');
 
 CREATE TABLE IF NOT EXISTS logs (
     id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,

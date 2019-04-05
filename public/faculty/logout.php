@@ -2,11 +2,9 @@
 session_start();
 
 
-if(isset($_SESSION['admin'])){
-    unset($_SESSION['admin']);  
+if (isset($_SESSION['faculty'])) {
+    unset($_SESSION['faculty']);
     // var_dump($_SESSION['user']);
 }
 
-header("Location: login.php");
-
-?>
+header("Location: /faculty/login.php");
